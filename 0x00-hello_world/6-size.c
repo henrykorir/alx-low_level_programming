@@ -1,8 +1,9 @@
 #include <stdio.h>
 /*
  * main - Entry point
- * Description: Using sizeof(0 operater to determine the size of the data types.
- * Retun: Always 0 (success)
+ * Retun: Always 0 (success) 
+ * Description: Using sizeof() operater to determine
+ * the size of the data types.
  */
 int main(void)
 {
