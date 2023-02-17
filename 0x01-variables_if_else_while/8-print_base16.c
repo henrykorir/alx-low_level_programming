@@ -8,12 +8,12 @@ int main(void)
 {
 	unsigned int index = 0;
 
-	while (index <= 16)
+	while (index <= 15)
 	{
 		if (index <= 9)
 			putchar((int)('0' + index));
-		else 
-			putchar(('f' - (16 - index)));
+		else
+			putchar((int)('a' + (6 -(16 - index))));
 		index++;
 	}
 	putchar('\n');
