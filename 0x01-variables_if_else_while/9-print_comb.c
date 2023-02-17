@@ -8,14 +8,17 @@ int main(void)
 {
 	unsigned int index = 0;
 
-	while (index < 9)
+	while (index <= 9)
 	{
 		putchar((int)('0' + index));
-		putchar(',');
-		putchar(' ');
+		if (index < 9)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 		index++;
 	}
-	putchar((int)('0' + index));
+	putchar('\n');
 
 	return (0);
 }
