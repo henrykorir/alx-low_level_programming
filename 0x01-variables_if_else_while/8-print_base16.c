@@ -13,7 +13,7 @@ int main(void)
 		if (index <= 9)
 			putchar((int)('0' + index));
 		else
-			putchar((int)('a' + (6 -(16 - index))));
+			putchar((int)('a' + (6 - (16 - index))));
 		index++;
 	}
 	putchar('\n');
