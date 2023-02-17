@@ -13,8 +13,7 @@ int main(void)
 		putchar((int)('a' + index));
 		index++;
 	}
-	index = 0;
-	
+	index = 0;	
 	while (index <= 25)
 	{
 		putchar((int)('A' + index));
