@@ -8,6 +8,7 @@
 int main(void)
 {
 	unsigned int index = 0;
+
 	while( index <= 25 )
 	{
 		putchar((int)(index + 'a'));
