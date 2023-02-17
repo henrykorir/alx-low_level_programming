@@ -1,10 +1,10 @@
 #include <stdio.h>
-/*
+/**
  * main - Entry point
  *
  * Return: Always 0 (success)
  *
- * Description: prints alphabets in small letter excluding q and e
+ * Description: prints alphabets in small letter excluding q and e.
  */
 int main(void)
 {
@@ -19,4 +19,4 @@ int main(void)
 	putchar('\n');
 
 	return (0);
-}	
+}
