@@ -8,7 +8,7 @@ int main(void)
 {
 	unsigned int index = 0;
 
-	for(index = 0; index <= 9; index++)
+	for (index = 0; index <= 9; index++)
 		printf("%d", index);
 	printf("\n");
 	return (0);
