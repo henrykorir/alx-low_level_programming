@@ -9,7 +9,7 @@ int main(void)
 	unsigned int i = 0;
 	unsigned int j = 0;
 	unsigned int k = 0;
-	
+
 	while (i <= 9)
 	{
 		while (j <= 9)
