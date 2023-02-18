@@ -6,39 +6,38 @@
  */
 int main(void)
 {
-       	unsigned int i = 0;
-        unsigned int j = 0;
-        unsigned int k = 0;
-		
-		while (i <= 9)
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int k = 0;
+	
+	while (i <= 9)
+	{
+		while (j <= 9)
 		{
-			while (j <= 9)
+			while (k <= 9)
 			{
-				while (k <= 9)
+				if (i != j && i != k && j != k)
 				{
-					if (i != j && i != k && j != k)
+					if (i < j && j < k)
 					{
-						if (i < j && j < k)
+						putchar((int)('0' + i));
+						putchar((int)('0' + j));
+						putchar((int)('0' + k));
+						if (i < 7)
 						{
-							putchar((int)('0' + i));
-							putchar((int)('0' + j));
-							putchar((int)('0' + k));
-							if (i < 7)
-							{
-								putchar(',');
-								putchar(' ');
-							}
+							putchar(',');
+							putchar(' ');
 						}
 					}
-					k++;
 				}
-				k = 0;
-				j++;
+				k++;
 			}
-			j=0;
-			i++;
+			k = 0;
+			j++;
 		}
-        putchar('\n');
-		
-        return (0);
+		j=0;
+		i++;
+	}
+	putchar('\n');
+	return (0);
 }
