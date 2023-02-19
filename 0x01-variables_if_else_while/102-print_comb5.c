@@ -6,10 +6,7 @@
  */
 int main(void)
 {
-	unsigned int a = 0;
-	unsigned int b = 0;
-	unsigned int c = 0;
-	unsigned int d = 0;
+	unsigned int a = 0, b = 0, c = 0, d = 0;
 
 	while (a <= 9)
 	{
@@ -30,8 +27,11 @@ int main(void)
 						putchar(' ');
 						putchar((int)('0' + c));
 						putchar((int)('0' + d));
-						putchar(',');
-						putchar(' ');
+				if (((a * 1000) + (b * 100) + (c * 10) + d) < 9899)
+				{
+					putchar(',');
+					putchar(' ');
+						}
 					}
 					d++;
 				}
