@@ -19,7 +19,11 @@ int main(void)
 			{
 				while (d <= 9)
 				{
-					if (a != c && b != d)
+					if (
+						((a * 10) + b) != ((c * 10) + d) &&
+						((a * 1000) + (b * 100) + (c * 10) + d) <
+						((c * 1000) + (d * 100) + (a * 10) + b)
+					)
 					{
 						putchar((int)('0' + a));
 						putchar((int)('0' + b));
@@ -39,5 +43,6 @@ int main(void)
 		b = 0;
 		a++;
 	}
+	putchar('\n');
 	return (0);
 }
