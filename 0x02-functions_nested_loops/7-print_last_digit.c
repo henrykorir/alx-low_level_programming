@@ -1,3 +1,4 @@
+#include <limits.h>
 #include "main.h"
 /**
  * print_last_digit - Print the last digit of
@@ -10,8 +11,14 @@
 int print_last_digit(int n)
 {
 	unsigned int x = n;
-	if(n < 0)
+
+	if (n < 0)
 		n = n * -1;
+	if (n >= 0 && n <= 9)
+	{
+		_putchar(n);
+		return (n);
+	}
 	x = n % 10;
 	_putchar('0' + x);
 	return (x);
