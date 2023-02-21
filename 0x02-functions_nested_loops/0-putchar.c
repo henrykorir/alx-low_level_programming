@@ -7,7 +7,10 @@
  */
 int main(void)
 {
-	_putchar("_putchar\n");
+	char string[9] = "_putchar\n";
+	unsigned int i = 0;
 
+	for (; string[i] != '\0'; i++ )
+		_putchar(string[i]);
 	return (0);
 }

@@ -1,23 +1,14 @@
-#include <stdio.h>
+#include <unistd.h>
 #include "main.h"
 
 /**
- * _putchar - print characters
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
- * @string: characters to be printed
- *
- * Description: Takes in a string and prints
- * individual characters using putchar()
- *
- * Return: Nothing
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-
-void _putchar(char *string)
+int _putchar(char c)
 {
-	unsigned int index = 0;
-
-	for (; string[index] != '\0'; index++)
-	{
-		putchar(string[index]);
-	}
+	return (write(1, &c, 1));
 }
