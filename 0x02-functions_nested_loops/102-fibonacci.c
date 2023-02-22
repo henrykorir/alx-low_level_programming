@@ -8,7 +8,7 @@
 int main(void)
 {
 	long int i = 1, j = 2, k = 3;
-	unsigned int count = 0;
+	unsigned int count = 2;
 
 	printf("%ld, %ld, ", i, j);
 	while (count <= 50)
