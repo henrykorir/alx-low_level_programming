@@ -7,14 +7,14 @@
  */
 int main(void)
 {
-	long long int i = 1, j = 2, k = 3;
+	long int i = 1, j = 2, k = 3;
 	unsigned int count = 0;
 
-	printf("%lld, %lld, ", i, j);
+	printf("%ld, %ld, ", i, j);
 	while (count <= 50)
 	{
 		k = i + j;
-		printf("%lld", k);
+		printf("%ld", k);
 		if (count < 50)
 			printf(", ");
 		i = j;
