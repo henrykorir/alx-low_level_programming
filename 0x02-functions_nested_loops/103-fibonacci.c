@@ -7,19 +7,16 @@
  */
 int main(void)
 {
-	long int i = 1, j = 2, k = 3;
+	long int i = 1, j = 2, k = 3, sum = 2;
 
-	printf("%ld", j);
 	while (k <= 4000000)
 	{
 		i = j;
 		j = k;
 		k = i + j;
 		if (k % 2 == 0 && (k <= 4000000))
-			printf("%ld", k);
-		if ((((j + k) % 2) == 0) && ((j + k) <= 4000000))
-			printf(", ");
+			sum += k;
 	}
-	printf("\n");
+	printf("%ld\n", sum);
 	return (0);
 }
