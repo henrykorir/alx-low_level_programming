@@ -13,4 +13,5 @@ void print_most_numbers(void)
 		if ((((int)('0' + c)) != 2) && ((((int)'0' + c)) != '4'))
 			_putchar(c);
 	}
+	_putchar("\n");
 }
