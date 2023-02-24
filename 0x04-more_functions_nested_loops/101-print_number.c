@@ -12,18 +12,25 @@ void print_number(int n)
 		sign = 1;
 		number *= -1;
 	}
-	while (number / divisor != 0)
-	{
-		divisor *= 10;
-	}
-	divisor /= 10;
 	if (sign == 1)
 		_putchar('-');
-	while (divisor >= 10)
+	if (number <= 9)
 	{
-		_putchar((char)('0' + (number / divisor)));
-		number %= divisor;
-		divisor /= 10;
+		_putchar('0' + number);
 	}
-	_putchar((char)('0' + number));
+	else
+	{
+		while (number / divisor != 0)
+		{
+			divisor *= 10;
+		}
+		divisor /= 10;
+		while (divisor >= 10)
+		{
+			_putchar((char)('0' + (number / divisor)));
+			number %= divisor;
+			divisor /= 10;
+		}
+		_putchar((char)('0' + number));
+	}
 }
