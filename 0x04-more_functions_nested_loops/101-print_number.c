@@ -13,24 +13,23 @@ void print_number(int n)
 		number *= -1;
 	}
 	if (sign == 1)
-		_putchar('-');
+		putchar('-');
 	if (number <= 9)
 	{
-		_putchar('0' + number);
+		putchar('0' + number);
 	}
 	else
 	{
-		while (number / divisor != 0)
+		while ((number / divisor) > 10)
 		{
 			divisor *= 10;
 		}
-		divisor /= 10;
 		while (divisor >= 10)
 		{
-			_putchar((char)('0' + (number / divisor)));
+			putchar((char)('0' + (number / divisor)));
 			number %= divisor;
 			divisor /= 10;
 		}
-		_putchar((char)('0' + number));
+		putchar((char)('0' + number));
 	}
 }
