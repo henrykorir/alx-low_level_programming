@@ -13,10 +13,10 @@ void print_number(int n)
 		number *= -1;
 	}
 	if (sign == 1)
-		putchar('-');
+		_putchar('-');
 	if (number <= 9)
 	{
-		putchar('0' + number);
+		_putchar('0' + number);
 	}
 	else
 	{
@@ -26,10 +26,10 @@ void print_number(int n)
 		}
 		while (divisor >= 10)
 		{
-			putchar((char)('0' + (number / divisor)));
+			_putchar((char)('0' + (number / divisor)));
 			number %= divisor;
 			divisor /= 10;
 		}
-		putchar((char)('0' + number));
+		_putchar((char)('0' + number));
 	}
 }
