@@ -18,15 +18,12 @@ void print_number(int n)
 	}
 	divisor /= 10;
 	if (sign == 1)
-		putchar('-');
+		_putchar('-');
 	while (divisor >= 10)
 	{
-		putchar((char)('0' + (number / divisor)));
+		_putchar((char)('0' + (number / divisor)));
 		number %= divisor;
 		divisor /= 10;
 	}
-	putchar((char)('0' + number));
-	putchar('\n');
-
-	return (0);
+	_putchar((char)('0' + number));
 }
