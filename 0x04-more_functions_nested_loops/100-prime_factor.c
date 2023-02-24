@@ -19,7 +19,7 @@ int main(void)
 		else
 		{
 			prime = prime + 2;
-			for (i = 2; i <= prime && prime <= n; i += 1)
+			for (i = 2; i <= prime && prime < n; i += 1)
 			{
 				if ((prime % i) == 0)
 					prime += 2;
