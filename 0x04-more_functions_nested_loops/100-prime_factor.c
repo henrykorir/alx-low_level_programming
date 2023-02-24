@@ -1,0 +1,33 @@
+#include <stdio.h>
+/**
+ * main - Entry point
+ * Return: Always 0 (success)
+ */
+int main(void)
+{
+	long int n = 612852475143, prime = 2, max = prime, i;
+
+	do {
+		while (n % prime == 0)
+		{
+			if (prime > max)
+				max = prime;
+			n /= prime;
+		}
+		if (prime == 2)
+			prime = 3;
+		else
+		{
+			prime = prime + 2;
+			for (i = 3; i < prime && prime <= n; i += 2)
+			{
+				if ((prime % i) == 0)
+					prime += 2;
+			}
+		}
+	} while (prime <= n);
+	printf("%ld\n", max);
+
+	return (0);
+}
+
