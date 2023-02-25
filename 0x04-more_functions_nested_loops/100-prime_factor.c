@@ -18,11 +18,11 @@ int main(void)
 			prime = 3;
 		else
 		{
-			prime = prime + 2;
-			for (i = 2; i < prime && prime < n; i += 1)
+			prime = prime + 1;
+			for (i = 2; i < prime && prime <= n; i += 1)
 			{
 				if ((prime % i) == 0)
-					prime += 2;
+					prime += 1;
 			}
 		}
 	} while (prime <= n);
@@ -30,4 +30,3 @@ int main(void)
 
 	return (0);
 }
-
