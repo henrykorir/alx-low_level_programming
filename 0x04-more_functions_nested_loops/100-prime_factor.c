@@ -5,7 +5,7 @@
  */
 int main(void)
 {
-	long int n = 612852475143, prime = 2, max = prime, i;
+	long int n = 612852475143, prime = 2081, max = prime, i;
 
 	do {
 		while (n % prime == 0)
@@ -14,16 +14,11 @@ int main(void)
 				max = prime;
 			n /= prime;
 		}
-		if (prime == 2)
-			prime = 3;
-		else
+		prime = prime + 2;
+		for (i = 2; i < prime && prime <= n; i += 1)
 		{
-			prime = prime + 1;
-			for (i = 2; i < prime && prime <= n; i += 1)
-			{
-				if ((prime % i) == 0)
-					prime += 1;
-			}
+			if ((prime % i) == 0)
+				prime += 2;
 		}
 	} while (prime <= n);
 	printf("%ld\n", max);
