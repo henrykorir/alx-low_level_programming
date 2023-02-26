@@ -1,28 +1,24 @@
 #include <stdio.h>
+
 /**
- * main - Entry point
- * Return: Always 0 (success)
+ * main - finds and prints the largest prime factor.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	unsigned long long int n = 612852475143, prime = 2, max = prime, i;
+	long int i, p, fp = 612852475143;
 
-	while (prime <= n)
+	i = 2;
+	while (i <= 612852475143 && fp > 1)
 	{
-		while ((n % prime) == 0)
-		{
-			if(prime > max)
-				max = prime;
-			n /= prime;
-		}
-		prime++;
-		for (i = 2; i < prime && ((i * i) <= prime) && prime <= n; i++)
-		{
-			if (prime % i == 0)
-				prime++;
-		}
+		p = i;
+		if ((fp % p) == 0)
+			fp = fp / p;
+		else
+			i++;
 	}
-	printf("%lld\n", max);
+	printf("%ld\n", p);
 
 	return (0);
 }
