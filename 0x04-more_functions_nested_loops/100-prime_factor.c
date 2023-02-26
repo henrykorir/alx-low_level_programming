@@ -7,16 +7,16 @@ int main(void)
 {
 	unsigned long long int n = 612852475143, prime = 2, max = prime, i;
 
-	while(prime <= n)
+	while (prime <= n)
 	{
-		while ((n % prime) == 0){
-			printf("%lld, %lld\n", n, prime);
+		while ((n % prime) == 0)
+		{
 			if(prime > max)
 				max = prime;
 			n /= prime;
 		}
 		prime++;
-		for (i = 2; ((i * i) <= prime) && prime <= n; i++)
+		for (i = 2; i < prime && ((i * i) <= prime) && prime <= n; i++)
 		{
 			if (prime % i == 0)
 				prime++;
