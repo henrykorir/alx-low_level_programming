@@ -5,6 +5,8 @@
  */
 void puts2(char *str)
 {
+	int i;
+
 	while ((i % 2 != 0 && str[i] != '\0') ||
 		(i % 2 == 0 && str[i + 1] != '\0'))
 	{
