@@ -5,7 +5,8 @@
  */
 void puts2(char *str)
 {
-	while ((*str != '\0') || (*(str + 1) != '\0'))
+	while ((i % 2 != 0 && str[i] != '\0') ||
+		(i % 2 == 0 && str[i + 1] != '\0'))
 	{
 		_putchar(*str);
 		str = str + 2;
