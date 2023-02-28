@@ -22,4 +22,6 @@ int main(void)
 		str[size] = '\0';
 		printf("%s\n", str);
 	}
+
+	return (0);
 }
