@@ -36,7 +36,9 @@ int _atoi(char *s)
 			break;
 		i++;
 	}
-	integer *= sign;
-
+	if (sign < 0)
+		integer = ((int)(integer)) * ((int)sign);
+	else
+		integer *= sign;
 	return (integer);
 }
