@@ -8,7 +8,8 @@
 */
 int _atoi(char *s)
 {
-	int length = 0, integer = 0, i = 0, found = 0, tenths = 0, sign = 1;
+	int length = 0, i = 0, found = 0, tenths = 0, sign = 1;
+	unsigned int integer = 0;
 
 	while (s[length] != '\0')
 		length++;
@@ -37,8 +38,6 @@ int _atoi(char *s)
 		i++;
 	}
 	if (sign < 0)
-		integer = ((int)(integer)) * ((int)sign);
-	else
-		integer *= sign;
-	return (integer);
+		return (((int)(integer)) * ((int)sign));
+	return (integer *= sign);
 }
