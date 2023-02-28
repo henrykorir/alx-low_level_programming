@@ -38,6 +38,6 @@ int _atoi(char *s)
 		i++;
 	}
 	if (sign < 0)
-		return (((int)(integer)) * ((int)sign));
+		return ((int)(((unsigned int)(integer)) * ((unsigned int)sign)));
 	return (integer *= sign);
 }
