@@ -7,17 +7,16 @@
  */
 int main(void)
 {
-	char str[54];
+	char str[101];
 	unsigned int size;
-	char chars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char chars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 	int key;
 
-	for (size = 1; size <= 5; size++)
+	for (size = 1; size <= 100; size++)
 	{
-		--size;
 		for (size_t n = 0; n < size; n++)
 		{
-			key = rand() % ((int)(52 - 1));
+			key = rand() % ((int)((sizeof(chars) / sizeof(char)) - 1));
 			str[n] = chars[key];
 		}
 		str[size] = '\0';
