@@ -4,6 +4,8 @@
  *
  * @src: source string
  * @dest: destination string
+ * @n: the length od characters
+ * to be copied
  *
  * Return: new string, dest
  */
