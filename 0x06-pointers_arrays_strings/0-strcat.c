@@ -5,6 +5,8 @@
  * @src: first string
  * @dest: second string
  *
+ * Description: s1 + s2
+ *
  * Return: concatenated string dest
  */
 char *_strcat(char *dest, char *src)
