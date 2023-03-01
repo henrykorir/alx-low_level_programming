@@ -21,6 +21,8 @@ char *cap_string(char *s)
 			s[i - 1] == '}') && ((s[i] >= 'a') && (s[i] <= 'z'))
 			)
 			s[i] = 'A' + (s[i] - 'a');
+		if (s[i - 1] == '\t')
+			s[i - 1] = ' ';
 		i++;
 	}
 
