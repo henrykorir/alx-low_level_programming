@@ -31,22 +31,13 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 				k1--;
 			if (k2 >= 0)
 				k2--;
-			if (k1 >= 0 && k2 < 0)
-			{
-				a = n1[k1] - '0';
-				b  = 0;
-			}
-			else if (k1 < 0 && k2 >= 0)
-			{
+			if (k1 < 0)
 				a = 0;
-				b = n2[k2] - '0';
-			}
-			else if (k1 < 0 && k2 < 0)
-			{
-				a = 0;
+			if (k2 < 0)
 				b = 0;
-			}
-			else
+			if (k1 < 0 && k2 < 0)
+				a = b = 0;
+			if (k1 >= 0 && k2 >= 0)
 			{
 				a = n1[k1] - '0';
 				b = n2[k2] - '0';
@@ -59,6 +50,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	else
 		return (0);
-
 	return (r);
 }
