@@ -1,3 +1,4 @@
+=#include <stdio.h>
 #include "main.h"
 
 /**
@@ -13,7 +14,7 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i = 0, a = 0, b = 0, c = 0;
-	int k = size_r, k1 = 0, k2 = 0, n = 0;
+	int k1 = 0, k2 = 0, n = 0;
 
 	for (; i < size_r; i++)
 		r[i] = '0';
@@ -22,11 +23,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	while (n2[k2] != '\0')
 		k2++;
 	n = k1 >= k2 ? k1 : k2;
-	if ((n + 1) <= k && k > 0)
+	if ((n + 1) <= size_r && size_r >= 0)
 	{
-		r[--k] = '\0';
-		k--;
-		while ((n--) >= 0)
+		r[--size_r] = '\0';
+		size_r--;
+		while (--n >= 0 && size_r >= 0)
 		{
 			k1--;
 			k2--;
@@ -41,14 +42,18 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 				a = n1[k1] - '0';
 				b = n2[k2] - '0';
 			}
-			if (k == 0 && (a + b + c) > 9)
+			if (size_r == 0 && (a + b + c) > 9)
 				return (0);
-			r[k--] = '0' + ((a + b + c) % 10);
+			r[size_r] = '0' + ((a + b + c) % 10);
 			c = (a + b + c) / 10;
+			size_r--;
 		}
 		i = 0;
-		while ((r[i++] = r[++k]) != '\0')
-			;
+		size_r++;
+		if ((size_r + i)  > 0 && r[size_r + i] == '0')
+			size_r++;
+		while ((r[i] = r[size_r++]) != '\0')
+			i++;
 	}
 	else
 		return (0);
