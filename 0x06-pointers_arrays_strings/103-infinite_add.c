@@ -21,12 +21,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		k1++;
 	while (n2[k2] != '\0')
 		k2++;
-	n = k1 >= k2 ? k1 : k2;
-	if ((n + 1) <= size_r && size_r >= 0)
+	n = (k1 >= k2 ? k1 : k2) + 1;
+	if (n <= size_r && size_r >= 0)
 	{
 		r[--size_r] = '\0';
 		size_r--;
-		while (n >= 0 && size_r >= 0)
+		while ((--n) >= 0 && size_r >= 0)
 		{
 			k1--;
 			k2--;
@@ -46,12 +46,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[size_r] = '0' + ((a + b + c) % 10);
 			c = (a + b + c) / 10;
 			size_r--;
-			n--;
 		}
-		i = 0;
-		size_r++;
-		if ((size_r + i)  > 0 && r[size_r + i] == '0')
+		if ((++size_r)  > 0 && r[size_r] == '0')
 			size_r++;
+		i = 0;
 		while ((r[i] = r[size_r++]) != '\0')
 			i++;
 	}
