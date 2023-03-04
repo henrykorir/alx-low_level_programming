@@ -1,4 +1,3 @@
-=#include <stdio.h>
 #include "main.h"
 
 /**
@@ -27,7 +26,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	{
 		r[--size_r] = '\0';
 		size_r--;
-		while (--n >= 0 && size_r >= 0)
+		while (n >= 0 && size_r >= 0)
 		{
 			k1--;
 			k2--;
@@ -47,6 +46,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[size_r] = '0' + ((a + b + c) % 10);
 			c = (a + b + c) / 10;
 			size_r--;
+			n--;
 		}
 		i = 0;
 		size_r++;
