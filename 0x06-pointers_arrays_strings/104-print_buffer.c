@@ -20,8 +20,7 @@ void print_buffer(char *b, int size)
 				if (i % 10 == 0 && i >= 10)
 				{
 					for (; j < i; j++)
-						((b[j] >= ' ') && (b[j] <= '~')) ?
-					printf("%c", b[j]) : printf(".");
+						putchar(((b[j] >= ' ') && (b[j] <= '~')) ? b[j] : '.');
 					printf("\n%08x: ", i);
 					k = 0;
 				}
@@ -43,8 +42,7 @@ void print_buffer(char *b, int size)
 				for (; k > 0; k--)
 					putchar(' ');
 				for (; j < i; j++)
-					((b[j] >= ' ') && (b[j] <= '~')) ?
-				printf("%c", b[j]) : printf(".");
+					putchar(((b[j] >= ' ') && (b[j] <= '~')) ? b[j] : '.');
 			}
 		}
 		printf("\n");
