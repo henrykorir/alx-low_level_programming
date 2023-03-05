@@ -38,8 +38,7 @@ void print_buffer(char *b, int size)
 			}
 			if (i == size)
 			{
-				k = (24 - k) + 1;
-				for (; k > 0; k--)
+				for (k = ((24 - k) + 1); k > 0; k--)
 					putchar(' ');
 				for (; j < i; j++)
 					putchar(((b[j] >= ' ') && (b[j] <= '~')) ? b[j] : '.');
@@ -50,3 +49,4 @@ void print_buffer(char *b, int size)
 	else
 		printf("\n");
 }
+
