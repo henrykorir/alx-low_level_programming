@@ -14,20 +14,20 @@ int main(void)
 	for (i = 0; i < 1000; i++)
 		password[i] = '\0';
 	i = 0;
-	while (i < 1000)
+	while (sum != 2772)
 	{
-		password[i] = min + (rand() % (max - min + 1));
-		sum += password[i];
-		if (sum > 2772 || i >= 1000)
+		if (sum > 2772)
 		{
+			for (i = 0; i < 1000; i++)
+				password[i] = '\0';
 			i = 0;
 			sum = 0;
 		}
-		if (sum == 2772)
-			break;
+		password[i] = (char)(min + (rand() % (max - min)));
+		sum += password[i];
 		i++;
 	}
-	printf("%s\n", password);
+	printf("%s", password);
 
 	return (0);
 }
