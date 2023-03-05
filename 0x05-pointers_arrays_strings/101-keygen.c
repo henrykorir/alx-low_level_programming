@@ -7,21 +7,27 @@
  */
 int main(void)
 {
-	char str[101];
-	unsigned int size, n;
-	char chars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-	int key;
+	int sum = 0, i = 0, min = 32, max = 126;
+	char password[1000];
 
-	for (size = 1; size <= 100; size++)
+	srand(time(NULL));
+	for (i = 0; i < 1000; i++)
+		password[i] = '\0';
+	i = 0;
+	while (i < 1000)
 	{
-		for (n = 0; n < size; n++)
+		password[i] = min + (rand() % (max - min + 1));
+		sum += password[i];
+		if (sum > 2772 || i >= 1000)
 		{
-			key = rand() % ((int)((sizeof(chars) / sizeof(char)) - 1));
-			str[n] = chars[key];
+			i = 0;
+			sum = 0;
 		}
-		str[size] = '\0';
-		printf("%s\n", str);
+		if (sum == 2772)
+			break;
+		i++;
 	}
+	printf("%s\n", password);
 
 	return (0);
 }
