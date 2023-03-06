@@ -10,8 +10,8 @@ void print_diagsums(int *a, int size)
 {
 	int i = 0, j = size - 1, sum = 0;
 
-	if (size == 0)
-		printf("d\n", 0);
+	if (size <= 0)
+		printf("0");
 	else if (size == 1)
 		printf("%d\n", a[0]);
 	else
