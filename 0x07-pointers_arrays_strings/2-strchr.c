@@ -14,7 +14,7 @@ char *_strchr(char *s, char c)
 {
 	char *cptr = NULL;
 
-	while (*(cptr = s) != c && *s != '\0')
+	while (s != NULL && *(cptr = s) != c && *s != '\0')
 		s++;
 
 	return (cptr);
