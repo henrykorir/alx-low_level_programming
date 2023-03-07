@@ -31,7 +31,6 @@ char *_strstr(char *haystack, char *needle)
 		}
 		if (j == k)
 		{
-			*haystack = '\0';
 			break;
 		}
 		if (*haystack != '\0')
