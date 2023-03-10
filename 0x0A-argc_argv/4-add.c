@@ -41,8 +41,7 @@ int main(int argc, char *argv[])
 	{
 		while (argv[i][j] != '\0')
 		{
-			putchar(argv[i][j]);
-			if (argv[i][j] < '0' && argv[i][j] > '9')
+			if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
 				puts("Error");
 				return (1);
