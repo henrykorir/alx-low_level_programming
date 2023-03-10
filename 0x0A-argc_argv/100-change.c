@@ -7,12 +7,12 @@
  * Return: Always 0 (success)
  */
 int main(int argc, char *argv[])
-{       
-        int change, cents = 25, count = 0;
-        
-        if (argc == 1)
-        {       
-                puts("Error");
+{
+	int i = 0, change, cents[5] = {25, 10, 5, 2, 1}, count = 0;
+
+	if (argc == 1)
+	{
+		puts("Error");
 		return (1);
 	}
 	change = (int)atoi(argv[1]);
@@ -21,28 +21,12 @@ int main(int argc, char *argv[])
 		puts("0");
 		return (0);
 	}
-	if ((change / cents) > 0)
+	for (; i < 5; i++)
 	{
-		count += change / cents;
-		change = change % cents;
-		cents = 10;
+		count += change / cents[i];
+		change = change % cents[i];
 	}
-	if ((change / cents) > 0)
-	{
-	       	count += change / cents;
-                change = change % cents;
-                cents = 5;
-	}
-	if ((change / cents) > 0)
-        {
-                count += change / cents;
-                change = change % cents;
-                cents = 1;
-        }
-	else
-		count += change;
 	printf("%d\n", count);
 
 	return (0);
 }
-
