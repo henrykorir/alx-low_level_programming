@@ -19,9 +19,10 @@ char *_strdup(char *str)
 	{
 		length++;
 	}
+	length++;
 	if (length == 0)
 		return (NULL);
-	cptr = (char *)malloc((length + 1) * sizeof(char));
+	cptr = (char *)malloc((length) * sizeof(char));
 	if (cptr == NULL)
 		return (NULL);
 	i = 0;
