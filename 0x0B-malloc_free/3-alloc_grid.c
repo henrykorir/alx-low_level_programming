@@ -1,35 +1,45 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
- * alloc_grid - alocates and initializesw 2D array
- * @width: width of the array
- * @height: height of the array
- * Return: pointer to 2d array or NULL otherwise
+ * alloc_grid - Returns a pointer to a 2-dimensional array of
+ *              integers with each element initalized to 0.
+ * @width: width of the 2-dimensional array.
+ * @height: height of the 2-dimensional array.
+ *
+ * Return: NULL If width <= 0, height <= 0, or errorm,
+ *         else a pointer to the 2-dimensional array of integers.
  */
+
 int **alloc_grid(int width, int height)
 {
-	int i = 0, j = 0;
-	int **grid;
+	int h, w;
+	int **dd;
 
-	if (width <= 0)
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	if (height <= 0)
+
+	dd = malloc(sizeof(int *) * height);
+
+	if (dd == NULL)
 		return (NULL);
-	grid = malloc(width * sizeof(int *));
-	if (grid == NULL)
-		return (NULL);
-	*grid = (int *)malloc(width * height * sizeof(int));
-	if (*grid == NULL)
+
+	for (h = 0; h < height; h++)
 	{
-		free(*grid);
-		free(grid);
-		return (NULL);
-	}
-	for (i = 0; i < width; i++)
-		grid[i] = (*grid + (height * i));
-	for (i = 0; i < width; i++)
-		for (j = 0; j < height; j++)
-			grid[j][i] = 0;
+		dd[h] = malloc(sizeof(int) * width);
 
-	return (grid);
+		if (dd[h] == NULL)
+		{
+			for (w = 0; w < h; w++)
+				free(dd[w]);
+			free(dd);
+			return (NULL);
+		}
+		for (w = 0; w < width; w++)
+		{
+			dd[h][w] = 0;
+		}
+	}
+	return (dd);
 }
