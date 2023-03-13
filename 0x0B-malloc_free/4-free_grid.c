@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
-/*
+/**
  * free_grid - free 2d dynamic memory
  * @grid: 2d dynamic memory
  * @height: height of the array
