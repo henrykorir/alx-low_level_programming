@@ -8,13 +8,14 @@
  */
 int check_for_space(char *str, int pos)
 {
-	int is_space =
+	int is_space = (
 		str[pos] == ' ' ||
 		str[pos] == '\t' ||
 		str[pos] == '\n' ||
 		str[pos] == '\v' ||
 		str[pos] == '\f' ||
-		str[pos] == '\r';
+		str[pos] == '\r'
+	);
 
 	return (is_space);
 }
@@ -72,8 +73,6 @@ char **allocate_memory(int m, int n)
  * split_string - splits string into words
  * @words: the memory to hold words
  * @str: string to be split.
- * @m: height of the memory.
- * @n: the width of the memory.
  * Return: 2d array of words
  */
 char **split_string(char **words, char *str)
@@ -91,8 +90,10 @@ char **split_string(char **words, char *str)
 				i++;
 				k++;
 			}
-			words[j][k] = '\0';
 		}
+		words[j][k] = '\0';
+		if (i < 0)
+			break;
 		j++;
 		k = 0;
 	}
@@ -124,6 +125,8 @@ char **strtow(char *str)
 				i++;
 		}
 	}
+	if (m == 0)
+		return (NULL);
 	m++;
 	i = 0;
 	while (check_for_space(str, i) == 1 || str[i] != '\0')
@@ -131,8 +134,6 @@ char **strtow(char *str)
 		i = skip_spaces(str, i);
 		if (i >= 0)
 		{
-			j++;
-			i++;
 			while (str[i] != '\0' && check_for_space(str, i) == 0)
 			{
 				i++;
