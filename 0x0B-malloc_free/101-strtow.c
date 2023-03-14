@@ -76,7 +76,7 @@ char **allocate_memory(int m, int n)
  * @n: the width of the memory.
  * Return: 2d array of words
  */
-char **split_string(char **words, char *str, int m, int n)
+char **split_string(char **words, char *str)
 {
 	int i = 0, j = 0, k = 0;
 
@@ -147,5 +147,5 @@ char **strtow(char *str)
 	words = allocate_memory(m, n);
 	if (words == NULL)
 		return (NULL);
-	return (split_string(words, str, m, n));
+	return (split_string(words, str));
 }
