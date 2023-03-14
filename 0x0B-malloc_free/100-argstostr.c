@@ -22,6 +22,7 @@ char *argstostr(int ac, char **av)
 			j++;
 		}
 		j = 0;
+		length++;
 	}
 	length++;
 	j = 0;
