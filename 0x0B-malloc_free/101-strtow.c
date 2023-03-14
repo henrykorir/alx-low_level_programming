@@ -43,62 +43,6 @@ int skip_spaces(char *str, int pos)
 	return (pos);
 }
 /**
- * get_height - calculate the height of the m x n array
- * from a string.
- * @str: the string to determine a m x n array height
- * Return: height
- */
-int get_height(char *str)
-{
-	int i = 0, m = 0;
-
-	while (check_for_space(str, i) == 1 || str[i] != '\0')
-	{
-		i = skip_spaces(str, i);
-		if (i >= 0)
-		{
-			m++;
-			i++;
-			while (str[i] != '\0' && check_for_space(str, i) == 0)
-				i++;
-		}
-	}
-	m++;
-
-	return (m);
-}
-/**
- * get_width - calculate the width of the m x n array
- * from a string.
- * @str: the string to determine a m x n array width
- * Return: width
- */
-int get_width(char *str)
-{
-	int i = 0, j = 0, n = 0;
-
-	while (check_for_space(str, i) == 1 || str[i] != '\0')
-	{
-		i = skip_spaces(str, i);
-		if (i >= 0)
-		{
-			j++;
-			i++;
-			while (str[i] != '\0' && check_for_space(str, i) == 0)
-			{
-				i++;
-				j++;
-			}
-		}
-		if (j > n)
-			n = j;
-		j = 0;
-	}
-	n++;
-
-	return (n);
-}
-/**
  * allocate_memory - allocate m x n memory
  * @m: the height
  * @n: the width
@@ -164,13 +108,42 @@ char **split_string(char **words, char *str, int m, int n)
  */
 char **strtow(char *str)
 {
-	int m = 0, n = 0;
+	int i = 0, j = 0, m = 0, n = 0;
 	char **words;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	m = get_height(str);
-	n = get_width(str);
+	while (check_for_space(str, i) == 1 || str[i] != '\0')
+	{
+		i = skip_spaces(str, i);
+		if (i >= 0)
+		{
+			m++;
+			i++;
+			while (str[i] != '\0' && check_for_space(str, i) == 0)
+				i++;
+		}
+	}
+	m++;
+	i = 0;
+	while (check_for_space(str, i) == 1 || str[i] != '\0')
+	{
+		i = skip_spaces(str, i);
+		if (i >= 0)
+		{
+			j++;
+			i++;
+			while (str[i] != '\0' && check_for_space(str, i) == 0)
+			{
+				i++;
+				j++;
+			}
+		}
+		if (j > n)
+			n = j;
+		j = 0;
+	}
+	n++;
 	words = allocate_memory(m, n);
 	if (words == NULL)
 		return (NULL);
