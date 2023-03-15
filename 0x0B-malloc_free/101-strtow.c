@@ -56,17 +56,18 @@ char **allocate_memory(int m, int n)
 
 	if (words == NULL)
 		return (NULL);
-	for (i = 0; i <= m; i++)
+	for (i = 0; i < m; i++)
 	{
 		words[i] = malloc(n * sizeof(char));
 		if (words[i] == NULL)
 		{
-			for (j = 0; j < i; j++)
+			for (j = i; j >= 0; j--)
 				free(words[j]);
 			free(words);
 			return (NULL);
 		}
 	}
+
 	return (words);
 }
 /**
@@ -97,9 +98,7 @@ char **split_string(char **words, char *str)
 		j++;
 		k = 0;
 	}
-	free(words[j]);
 	words[j] = NULL;
-
 	return (words);
 }
 /**
