@@ -106,6 +106,7 @@ char **split_string(char **words, char *str)
 		j++;
 		k = 0;
 	}
+	free(words[j]);
 	words[j] = NULL;
 	return (words);
 }
