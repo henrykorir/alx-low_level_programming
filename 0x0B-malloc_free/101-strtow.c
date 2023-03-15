@@ -45,20 +45,26 @@ int skip_spaces(char *str, int pos)
 }
 /**
  * allocate_memory - allocate m x n memory
+ * @str: string to allocate memory for.
  * @m: the height
- * @n: the width
  * Return: 2d array memory or NULL otherwise
  */
-char **allocate_memory(int m, int n)
+char **allocate_memory(char *str, int m)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, k = 0, n = 0;
 	char **words = malloc(m * sizeof(char *));
 
 	if (words == NULL)
 		return (NULL);
 	for (i = 0; i < m; i++)
 	{
-		words[i] = malloc(n * sizeof(char));
+		k = skip_spaces(str, k);
+		while (k > 0 && str[k] != '\0' && check_for_space(str, k) == 0)
+		{
+			k++;
+			n++;
+		}
+		words[i] = malloc((n + 1) * sizeof(char));
 		if (words[i] == NULL)
 		{
 			for (j = i; j >= 0; j--)
@@ -66,6 +72,7 @@ char **allocate_memory(int m, int n)
 			free(words);
 			return (NULL);
 		}
+		n = 0;
 	}
 
 	return (words);
@@ -109,7 +116,7 @@ char **split_string(char **words, char *str)
  */
 char **strtow(char *str)
 {
-	int i = 0, j = 0, m = 0, n = 0;
+	int i = 0, m = 0;
 	char **words;
 
 	if (str == NULL || str[0] == '\0')
@@ -128,24 +135,7 @@ char **strtow(char *str)
 	if (m == 0)
 		return (NULL);
 	m++;
-	i = 0;
-	while (check_for_space(str, i) == 1 || str[i] != '\0')
-	{
-		i = skip_spaces(str, i);
-		if (i >= 0)
-		{
-			while (str[i] != '\0' && check_for_space(str, i) == 0)
-			{
-				i++;
-				j++;
-			}
-		}
-		if (j > n)
-			n = j;
-		j = 0;
-	}
-	n++;
-	words = allocate_memory(m, n);
+	words = allocate_memory(str, m);
 	if (words == NULL)
 		return (NULL);
 	return (split_string(words, str));
