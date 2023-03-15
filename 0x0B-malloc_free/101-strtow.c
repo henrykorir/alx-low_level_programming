@@ -52,8 +52,9 @@ int skip_spaces(char *str, int pos)
 char **allocate_memory(char *str, int m)
 {
 	int i = 0, j = 0, k = 0, n = 0;
-	char **words = malloc((m + 1) * sizeof(char *));
+	char **words;
 
+	words = malloc(m * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
 	for (i = 0; i < m; i++)
