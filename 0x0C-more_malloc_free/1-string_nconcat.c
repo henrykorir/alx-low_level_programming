@@ -9,37 +9,42 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-        int i = 0, j = 0, k = 0, m = 0;
-        
-        while (s1 != NULL && s1[i] != '\0')
-                i++;
-        while (s2 != NULL && s2[j] != '\0')
-                j++;
-        if (s1 == NULL)
-        {       
-                i = 0;
-                s1 = malloc(1 * sizeof(char));
-                if (s1 == NULL)
-                        return (NULL);
-		s1[0] = '\0';
-        }       
-        if (s2 == NULL)
-		return (s2);
-	if (j <= n)
-		m = i + j + 1;
-	else
-		m = i + n + 1;
-	s1 = realloc(s1, m * sizeof(char));
+	unsigned int i = 0, j = 0, k = 0, m = 0;
+	char *s3;
+
+	while (s1 != NULL && s1[i] != '\0')
+		i++;
+	while (s2 != NULL && s2[j] != '\0')
+		j++;
 	if (s1 == NULL)
+	{
+		i = 0;
+		s1 = malloc(1 * sizeof(char));
+			if (s1 == NULL)
+				return (NULL);
+		s1[0] = '\0';
+	}
+	if (s2 == NULL)
+		return (s2);
+	m = (j <= n) ? (i + j + 1) : (i + n + 1);
+	s3 = malloc(m * sizeof(char));
+	if (s3 == NULL)
 		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		s3[i] = s1[i];
+		i++;
+	}
 	k = (j <= n) ? j : n;
 	j = 0;
-	while (j <= k && s2[j] != '\0')
+	while (j < k && s2[j] != '\0')
 	{
-		s1[i] = s2[j];
+		s3[i] = s2[j];
 		i++;
 		j++;
 	}
+	s3[i] = '\0';
 
-	return (s1);
+	return (s3);
 }
