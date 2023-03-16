@@ -9,8 +9,8 @@
  */
 int *array_range(int min, int max)
 {
-	int i = 0, j = 0;
-	unsigned long  int size = 0;
+	int j = 0;
+	unsigned long int i = 0, size = 0;
 	int *array;
 
 	if (min > max)
