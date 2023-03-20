@@ -15,6 +15,8 @@ int check_commands(int argc, char *argv[])
 		return (-1);
 	for (i = 1; i < argc; i++)
 	{
+		if (argv[i][0] == '-')
+			j++;
 		while (argv[i][j] != '\0')
 		{
 			if (argv[i][j] < '0' || argv[i][j] > '9')
@@ -179,6 +181,7 @@ void print_answer(char **memory, int length, int height)
 
 /**
 * deallocate_memory - free reserved memory
+* @memory: pointer to the memory to be freed
 * @height: height of the array
 */
 void deallocate_memory(char **memory, int height)
