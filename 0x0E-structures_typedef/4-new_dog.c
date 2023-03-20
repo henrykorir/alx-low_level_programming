@@ -17,7 +17,7 @@ char *add_string(char *s)
 		str = NULL;
 	else
 	{
-		str = malloc(i * sizeof(char));
+		str = malloc((i + 1) * sizeof(char));
 		if (str == NULL)
 			str = NULL;
 		else
@@ -40,17 +40,25 @@ char *add_string(char *s)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog_ptr = NULL;
-	int i = 0;
 
 	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
 	new_dog_ptr = malloc(sizeof(dog_t));
 	if (new_dog_ptr == NULL)
 		return (NULL);
-	while (name[i] != '\0')
-		i++;
 	new_dog_ptr->name = add_string(name);
+	if (new_dog_ptr->name == NULL)
+	{
+		free(new_dog_ptr);
+		return (NULL);
+	}
 	new_dog_ptr->owner = add_string(owner);
+	if (new_dog_ptr->owner == NULL)
+	{
+		free(new_dog_ptr->name);
+		free(new_dog_ptr);
+		return (NULL);
+	}
 	new_dog_ptr->age = age;
 
 	return (new_dog_ptr);
