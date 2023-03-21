@@ -167,7 +167,7 @@ char **do_product(char *argv[], char ***memory, int length1, int length2)
 */
 void print_answer(char **memory, int length, int height)
 {
-	int i = 0;
+	int i = 0, count = 0;
 
 	if (memory[height - 1][0] == '-')
 		putchar('-');
@@ -175,7 +175,15 @@ void print_answer(char **memory, int length, int height)
 	while (memory[height - 1][i] == '0')
 		i++;
 	for (; i < length; i++)
-		printf("%c", memory[height - 1][i]);
+	{
+		if (memory[height - 1][i] != '\0')
+		{
+			printf("%c", memory[height - 1][i]);
+			count++;
+		}
+	}
+	if (count == 0)
+		putchar('0');
 	puts("");
 }
 
