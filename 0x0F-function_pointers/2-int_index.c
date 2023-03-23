@@ -12,7 +12,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i = 0, bool = 0;
 
-	for (i = 0; cmp != NULL && i < size; i++)
+	for (i = 0; (array + i) != NULL && cmp != NULL && i < size; i++)
 	{
 		bool = cmp(array[i]);
 		if (bool == 1)
