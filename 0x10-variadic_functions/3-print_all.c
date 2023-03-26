@@ -18,31 +18,27 @@ void print_all(const char * const format, ...)
 	p = format;
 	while (*p)
 	{
-		if (*p == 'c' || *p == 'i' || *p == 'f' || *p == 's')
+		switch (*p)
 		{
-			switch (*p)
-			{
-				case 'c':
-					printf("%c", va_arg(ap, int));
-					break;
-				case 'i':
-					printf("%d", va_arg(ap, int));
-					break;
-				case 'f':
-					printf("%f", va_arg(ap, double));
-					break;
-				case 's':
-					s = va_arg(ap, char *);
-					while (s != NULL && *s)
-					{
-						putchar(*s);
-						s++;
-					}
-					break;
-			}
-			if (*(p + 1) != '\0')
-				printf(", ");
+			case 'c':
+				printf("%c", va_arg(ap, int));
+				break;
+			case 'i':
+				printf("%d", va_arg(ap, int));
+				break;
+			case 'f':
+				printf("%f", va_arg(ap, double));
+				break;
+			case 's':
+				s = va_arg(ap, char *);
+				if (s == NULL)
+					printf("(nil)");
+				else
+					printf("%s", s);
+				break;
 		}
+		if ((*p == 'c' || *p == 'i' || *p == 'f' || *p == 's') && (*(p + 1) != '\0'))
+			printf(", ");
 		p++;
 	}
 	va_end(ap);
