@@ -32,9 +32,11 @@ void print_all(const char * const format, ...)
 			case 's':
 				s = va_arg(ap, char *);
 				if (s == NULL)
+				{
 					printf("(nil)");
-				else
-					printf("%s", s);
+					break;
+				}
+				printf("%s", s);
 				break;
 		}
 		if ((*p == 'c' || *p == 'i' || *p == 'f' || *p == 's') && (*(p + 1) != '\0'))
