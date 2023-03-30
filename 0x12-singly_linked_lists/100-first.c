@@ -1,11 +1,10 @@
 #include <stdio.h>
 
 /**
- * print_string - prints ascii charaters
- * @s: string
+ * before_main - prints a string before main() is called
  */
-void print_string(char *s)
+void __attribute__ ((constructor)) before_main(void)
 {
-	printf("%s", s);
+	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
 }
 
