@@ -6,8 +6,8 @@
  * Return: a pointer to the first node of the linked list
  */
 listint_t *reverse_listint(listint_t **head)
-{       
-        listint_t *temp = NULL, *next = NULL;
+{
+	listint_t *temp = NULL, *next = NULL;
 
 	if (head == NULL || *head == NULL)
 		return (NULL);
