@@ -15,12 +15,12 @@ size_t print_listint_safe(const listint_t *head)
 		exit(98);
 	for (; current != NULL; current = current->next)
 	{
-		printf("[%0x] %d\n", &current, current->n);
+		printf("[%p] %d\n", (void *)current, current->n);
 		n++;
 		if (current->next >= current)
 		{
-			printf("->[%0x] 98\n", &current->next);
-			break;
+			printf("->[%p] %d\n", (void *)current->next, current->next->n);
+			return (n);
 		}
 	}
 
