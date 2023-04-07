@@ -25,7 +25,7 @@ size_t print_listint_safe(const listint_t *head)
 			idx = current - head;
 		if (visited[idx] == 1)
 		{
-			printf("->[%p] %d\n", (void *)current, current->n);
+			printf("->[%p] %d\n", (void *)current, current->next->n);
 			return (n);
 		}
 		printf("[%p] %d\n", (void *)current, current->n);
