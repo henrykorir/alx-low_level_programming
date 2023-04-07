@@ -15,7 +15,7 @@ size_t print_listint_safe(const listint_t *head)
 	unsigned long int idx = 0;
 
 	if (head == NULL)
-		exit(98);
+		return (0);
 	memset(visited, '0', 5000 * sizeof(int));
 	for (; current != NULL; current = current->next)
 	{
