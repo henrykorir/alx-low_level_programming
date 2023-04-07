@@ -11,7 +11,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 	listint_t *current = (listint_t *)head;
 	size_t n = 0;
-	int visited[5000];
+	long int visited[5000];
 	unsigned long int idx = 0;
 
 	if (head == NULL)
