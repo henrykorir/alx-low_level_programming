@@ -1,5 +1,6 @@
-#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 /**
  * print_listint_safe - safely prints listint_t linked list
@@ -8,19 +9,28 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
+	listint_t *current = (listint_t *)head;
 	size_t n = 0;
+	int visited[5000];
+	unsigned long int idx = 0;
 
-	if (*head == NULL)
+	if (head == NULL)
 		exit(98);
-	for (; head != NULL; head = head->next)
+	memset(visited, '0', 5000 * sizeof(int));
+	for (; current != NULL; current = current->next)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
-		n++;
-		if ((void *)head->next => (void *)head)
+		if (((void *)current) < ((void *)head))
+			idx = head - current;
+		else
+			idx = current - head;
+		if (visited[idx] == 1)
 		{
-			printf("->[%p] %d\n", (void *)head->next, head->next->n);
+			printf("->[%p] %d\n", (void *)current, current->n);
 			return (n);
 		}
+		printf("[%p] %d\n", (void *)current, current->n);
+		visited[idx] = 1;
+		n++;
 	}
 
 	return (n);
