@@ -24,7 +24,7 @@ listint_t *find_listint_loop(listint_t *head)
 			((head->next - head) < 0 && direction < 0)))
 			{
 				n++;
-				return(head->next);
+				return (head->next);
 			}
 		}
 		head = head->next;
