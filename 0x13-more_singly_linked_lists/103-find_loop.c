@@ -8,27 +8,19 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	size_t n = 0;
 	int direction;
 
 	if (head == NULL || head->next == NULL)
 		return (NULL);
-	if (head == head->next)
+	if ((head == head->next) || (head->next - head == 0))
 		return (head->next);
 	direction = (head->next - head) < 0 ? -1 : 1;
-	while (head != NULL)
+	while (head != NULL && head->next != NULL)
 	{
-		if (n > 0 && head->next != NULL)
-		{
-			if (!(((head->next - head) > 0 && direction > 0) ||
-			((head->next - head) < 0 && direction < 0)))
-			{
-				n++;
-				return (head->next);
-			}
-		}
+		if (!(((head->next - head) > 0 && (direction > 0)) ||
+		((head->next - head) < 0 && (direction < 0))))
+			return (head->next);
 		head = head->next;
-		n++;
 	}
 
 	return (NULL);
