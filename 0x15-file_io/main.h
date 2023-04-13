@@ -1,4 +1,4 @@
-i#ifndef __MAIN_H__
+#ifndef __MAIN_H__
 #define __MAIN_H__
 
 int _putchar(char c);
@@ -7,4 +7,3 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 #endif
-
