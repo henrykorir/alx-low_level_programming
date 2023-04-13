@@ -12,7 +12,8 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t n = 0, nb_read = 1, nb_written;
+	ssize_t nb_read = 1, nb_written;
+	size_t n = 0;
 	int fd_open;
 	char c;
 
