@@ -22,24 +22,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd_open = open(filename, O_RDONLY, 0);
 	if (fd_open < 0)
 		return (0);
-	while (n <= letters)
+	nb_read = read(fd_open, &c, 1);
+	while (nb_read > 0)
 	{
-		if (n == letters)
-			return (n);
-		nb_read = read(fd_open, &c, 1);
-		if (nb_read < 0)
-			return (0);
-		if (nb_read == 0)
-		{
-			if (n == letters)
-				return (n);
-			else
-				return (0);
-		}
 		nb_written = write(STDOUT_FILENO, &c, 1);
 		if ((nb_written < 0) || (nb_written != nb_read))
 			return (0);
 		n++;
+		if (n == letters)
+			return (n);
+		nb_read = read(fd_open, &c, 1);
 	}
 	close(fd_open);
 
