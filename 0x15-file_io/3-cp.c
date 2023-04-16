@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		exit(97);
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		exit(97);
 	}
 	fd_read = open(argv[1], O_RDONLY, 0);
 	if (fd_read < 0)
