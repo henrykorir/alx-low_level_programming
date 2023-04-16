@@ -23,8 +23,8 @@ void read_and_write(int *fd_read, int *fd_write, const char *file_to)
 		nb_write = write(*fd_write, buffer, nb_read);
 		if ((nb_write < 0) || (nb_write != nb_read))
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		}
 		nb_read = read(*fd_read, buffer, 1024);
 	}
@@ -49,27 +49,27 @@ int main(int argc, char *argv[])
 	fd_read = open(argv[1], O_RDONLY, 0);
 	if (fd_read < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 	}
 	fd_write = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_write < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 	}
 	read_and_write(&fd_read, &fd_write, argv[2]);
 	status = close(fd_write);
 	if (status < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_write);
 		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_write);
 	}
 	status = close(fd_read);
 	if (status < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_read);
 		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_read);
 	}
 	return (0);
 }
