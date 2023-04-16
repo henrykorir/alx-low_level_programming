@@ -12,7 +12,8 @@
  * @file_to: file name of the destination file
  * Return: nothing.
  */
-void read_and_write(int *fd_read, int *fd_write, const char *file_to)
+void read_and_write(int *fd_read, int *fd_write,
+const char *file_from, const char *file_to)
 {
 	int nb_read, nb_write;
 	char buffer[1024];
@@ -20,6 +21,11 @@ void read_and_write(int *fd_read, int *fd_write, const char *file_to)
 	nb_read = read(*fd_read, buffer, 1024);
 	while (nb_read > 0)
 	{
+		if (nb_read < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
 		nb_write = write(*fd_write, buffer, nb_read);
 		if ((nb_write < 0) || (nb_write != nb_read))
 		{
@@ -58,7 +64,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	read_and_write(&fd_read, &fd_write, argv[2]);
+	read_and_write(&fd_read, &fd_write, argv[1], argv[2]);
 	status = close(fd_write);
 	if (status < 0)
 	{
