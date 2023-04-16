@@ -12,8 +12,7 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t nb_read = 1, nb_written;
-	size_t n = 0;
+	ssize_t nb_read = 0, nb_written = 0, n = 0;
 	int fd_open;
 	char c;
 
@@ -30,10 +29,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			return (0);
 		n++;
 		if (n == letters)
-			return (n);
+			break;
 		nb_read = read(fd_open, &c, 1);
 	}
 	close(fd_open);
 
-	return (0);
+	return (n);
 }
