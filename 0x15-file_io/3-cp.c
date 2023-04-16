@@ -9,6 +9,7 @@
  * another fildes.
  * @fd_read: fildes to read from.
  * @fd_write: filedes to write to
+ * @file_from: the name of the source file.
  * @file_to: file name of the destination file
  * Return: nothing.
  */
@@ -33,6 +34,11 @@ const char *file_from, const char *file_to)
 			exit(99);
 		}
 		nb_read = read(*fd_read, buffer, 1024);
+	}
+	if (nb_read < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 }
 /**
