@@ -28,7 +28,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if ((nb_written < 0) || (nb_written != nb_read))
 			return (0);
 		n++;
-		if (n == letters)
+		if (n == (ssize_t)letters)
 			break;
 		nb_read = read(fd_open, &c, 1);
 	}
